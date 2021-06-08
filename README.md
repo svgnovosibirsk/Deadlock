@@ -4,12 +4,9 @@
  первого, то второй closure не может начать исполнение пока не завершиться исполнение первого.
  Первый closure не может завершиться  пока не не завершиться второй. Возникает Deadlock.
  
-
 let serialQueue = DispatchQueue(label: "com.foo.bar")
-
 serialQueue.async {
     print("Work 1")
-    
     serialQueue.sync {
         print("Work 2")
     }
